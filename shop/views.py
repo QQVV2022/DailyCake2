@@ -60,6 +60,7 @@ def place_order(request):
         phone = request.POST.get("phone")
         price = request.POST.get("price")
         products = request.POST.get("products")
+        # print("***products",products)
         add_items = Address(item=products,firstname=first_name, lastname=last_name,address=address,email=email,phone=phone,total_price=price)
         add_items.save()
 
@@ -84,7 +85,7 @@ def change_password_action(request):
     if request.method == 'POST':
         user_name = request.POST.get("user_name")
         email = request.POST.get("email")
-        allow = request.POST.get("allow")
+        # allow = request.POST.get("allow")
 
         from django.contrib.auth import authenticate
 
@@ -131,7 +132,7 @@ def sign_up(request):
         from django.contrib.auth import authenticate
 
         password = request.POST.get("password")
-        print(f"password:{password}")
+        # print(f"password:{password}")
         repeat_password = request.POST.get("repeat_password")
 
         context = {'username':user_name,
