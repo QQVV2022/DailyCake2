@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from .models import  Product, Address, Users
 from django.contrib.auth import authenticate, login, logout
+from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -154,7 +155,7 @@ def sign_up(request):
             context['message'] = "User existed!"
             return render(request, 'shop/register.html', context)
 
-        from datetime import datetime
+
         items = Users.objects.create_user(username=user_name, email=email, password=password, is_active=True, create_time=datetime.now(), last_modify_time=datetime.now())
         items.save()
         # send active email to user asychronize so the page can be return directely
