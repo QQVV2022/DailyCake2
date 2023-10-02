@@ -29,7 +29,7 @@ class Model_Test(TestCase):
 
 
 # create a test function to test the user login
-class User_Login_Test(TestCase):
+class Views_Test(TestCase):
     # create set up function to create  a user
     def setUp(self):
         self.user = Users.objects.create_user(username='abc123', email="test@email.com", password='12345', is_active=True, create_time=datetime.now(), last_modify_time=datetime.now())
